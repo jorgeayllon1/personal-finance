@@ -1,8 +1,15 @@
 {
     "name": "Principal notebook",
     "image": "quay.io/jupyter/base-notebook:python-3.12.7",
-    "workspaceMount": "source=./src,target=/home/jovyan/work/src/,type=bind,consistency=cached",
+    "workspaceMount": "",
     "workspaceFolder": "/home/jovyan/work/src/",
+    "runArgs": [
+        "--userns=keep-id",
+        "--volume=./src/:/home/jovyan/work/src/:Z"
+    ],
+    "containerEnv": {
+        "HOME": "/home/jovyan"
+    },
     "forwardPorts": [8888],
     "customizations": {
       "vscode": {
@@ -10,7 +17,8 @@
           "ms-toolsai.jupyter",
           "ms-python.python",
           "mechatroner.rainbow-csv",
-          "ms-python.black-formatter"
+          "ms-python.black-formatter",
+          "tomoki1207.pdf"
         ]
       }
     },

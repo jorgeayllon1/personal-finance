@@ -1,0 +1,19 @@
+{
+    "name": "Principal notebook",
+    "image": "quay.io/jupyter/base-notebook:python-3.12.7",
+    "workspaceMount": "source=./src,target=/home/jovyan/work/src/,type=bind,consistency=cached",
+    "workspaceFolder": "/home/jovyan/work/src/",
+    "forwardPorts": [8888],
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-toolsai.jupyter",
+          "ms-python.python",
+          "mechatroner.rainbow-csv",
+          "ms-python.black-formatter",
+          "tomoki1207.pdf"
+        ]
+      }
+    },
+    "overrideCommand": false
+}
